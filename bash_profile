@@ -49,6 +49,7 @@ alias sync_virgo="cd /racker/virgo && notify_loop.sh . rsync -avz --exclude=out/
 alias sync_ele="notify_loop.sh /racker/ele rsync -avz --exclude=out/* . kans@ele:~/Dev/ele/ && notify_loop.sh /racker/virgo rsync -avz --exclude=out/* . kans@ele:~/Dev/virgo/ "
 alias sha1sum="shasum"
 alias ls='ls -GF'
+alias slime='/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'
 export LSCOLORS='gxfxcxdxcxegedabagacad'
 
 
@@ -74,4 +75,21 @@ export NVM_DIR="/Users/kans/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ssh-add -A
-nvm use 6
+nvm use 10
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+export SFT_DEPLOY_AUTHOR="kans"
+export SFT_DEPLOY_AUTHOR="matt.kaniaris@okta.com"
+export SFT_DEPLOY_REPO="ScaleFT/deploy-prod"
+# strap:strapenv:begin
+[ -r "$HOME/.strap/etc/strapenv" ] && . "$HOME/.strap/etc/strapenv"
+# strap:strapenv:end
+
+# strap:bashrc:begin
+# source .bashrc from within .bash_profile per bash user guide:
+# https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html
+[[ -r "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
+# strap:bashrc:end
+

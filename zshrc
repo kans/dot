@@ -1,6 +1,6 @@
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/Users/mattkaniaris/Library/Python/2.7/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -117,7 +117,8 @@ alias gd='git diff'
 alias gs='git status'
 alias emacs="emacs -nw"
 alias ctl="kubectl"
-export EDITOR="slime -nw"
+alias slime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+export EDITOR='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl -nw'
 alias co="git checkout "
 alias branch="git branch"
 alias ..="cd .."
@@ -128,6 +129,7 @@ alias sync_virgo="cd /racker/virgo && notify_loop.sh . rsync -avz --exclude=out/
 alias sync_ele="notify_loop.sh /racker/ele rsync -avz --exclude=out/* . kans@ele:~/Dev/ele/ && notify_loop.sh /racker/virgo rsync -avz --exclude=out/* . kans@ele:~/Dev/virgo/ "
 alias sha1sum="shasum"
 alias ls='ls -GF'
+alias kgit="GIT_SSH_COMMAND='ssh -o \"IdentitiesOnly=yes\" -i ~/.ssh/kans_rsa' git"
 export LSCOLORS='gxfxcxdxcxegedabagacad'
 
 
@@ -135,11 +137,11 @@ git config --global alias.grog 'log --graph --abbrev-commit --decorate --all --f
 git config --global alias.co 'checkout'
 export GOPATH="$HOME/go"
 export PATH=$GOPATH/bin:$PATH
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.99.100:2376"
-export DOCKER_CERT_PATH="/Users/kans/.docker/machine/machines/default"
-export DOCKER_MACHINE_NAME="default"
-export NODE_REPL_HISTORY_FILE=/Users/kans/.iorepl
+# export DOCKER_TLS_VERIFY="1"
+# export DOCKER_HOST="tcp://192.168.99.100:2376"
+# export DOCKER_CERT_PATH="/Users/mattkaniaris/.docker/machine/machines/default"
+# export DOCKER_MACHINE_NAME="default"
+export NODE_REPL_HISTORY_FILE=/Users/mattkaniaris/.iorepl
 
 # Move next only if `homebrew` is installed
 if command -v brew >/dev/null 2>&1; then
@@ -149,8 +151,32 @@ fi
 source ~/.git-completion.sh
 
 
-export NVM_DIR="/Users/kans/.nvm"
+export NVM_DIR="/Users/mattkaniaris/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ssh-add -A
-nvm use 6
+nvm use 13
+
+
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
+
+export HOMEBREW_GITHUB_API_TOKEN=17030a09dfc1ce7c40cdc5020362b234494dd5fa
+# strap:straprc:begin
+### strap
+# [ -r "$HOME/.strap/etc/straprc" ] && . "$HOME/.strap/etc/straprc"
+# strap:straprc:end
+
+alias enter_sft_prod='eval $(gimme-aws-creds -p sft-prod)'
+alias enter_sft_trex='eval $(gimme-aws-creds -p sft-dev)'
+alias enter_sft_int='eval $(gimme-aws-creds -p sft-int)'
+alias enter_sft_sandbox='eval $(gimme-aws-creds -p sft-sandbox)'
+alias enter_sft_dev='eval $(gimme-aws-creds -p sft-dev)'
+
+function clear_aws() {
+  export AWS_ROLE_ARN=""
+  export AWS_ACCESS_KEY_ID=""
+  export AWS_SECRET_ACCESS_KEY=""
+  export AWS_SESSION_TOKEN=""
+  export AWS_SECURITY_TOKEN=""
+}
