@@ -1,0 +1,9 @@
+#tabbrowser-tabs {
+visibility: collapse !important;
+}
+#TabsToolbar {
+    visibility: collapse !important;
+}
+menubar {
+  background-color: red;
+}
