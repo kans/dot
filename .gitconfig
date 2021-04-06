@@ -1,0 +1,22 @@
+[alias]
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+	co = checkout
+[user]
+	name = Matt Kaniaris
+	email = mkaniaris@gmail.com
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[credential]
+	helper = store
+[core]
+	autocrlf = input
+[push]
+	default = simple
+[branch]
+	autosetupmerge = always
+[github]
+	user = mattkaniaris-okta
+# [url "git@github.com:"]
+# 	insteadOf = https://github.com/
+# [url "git@github.com:ScaleFT"]
+# 	insteadOf = https://github.com/ScaleFT
