@@ -70,9 +70,12 @@ if command -v brew >/dev/null 2>&1; then
 fi
 source ~/.git-completion.sh
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
-export NVM_DIR="/Users/kans/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="/Users/kans/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ssh-add -A
 nvm use 10
@@ -93,3 +96,4 @@ export SFT_DEPLOY_REPO="ScaleFT/deploy-prod"
 [[ -r "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
 # strap:bashrc:end
 
+. "$HOME/.cargo/env"

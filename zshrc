@@ -115,6 +115,7 @@ alias gpr='open "https://github.com/$(git_current_origin)/pull/new/$(git_current
 alias glu='git ls-files --other --exclude-standard'
 alias gd='git diff'
 alias gs='git status'
+alias gr="git gr"
 alias emacs="emacs -nw"
 alias ctl="kubectl"
 alias slime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
@@ -151,11 +152,16 @@ fi
 source ~/.git-completion.sh
 
 
-export NVM_DIR="/Users/mattkaniaris/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
+
+
+# export NVM_DIR="/Users/mattkaniaris/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ssh-add -A
-nvm use 13
+nvm use 16
 
 
 # eval "$(pyenv init -)"
@@ -180,3 +186,7 @@ function clear_aws() {
   export AWS_SESSION_TOKEN=""
   export AWS_SECURITY_TOKEN=""
 }
+
+
+export PATH="$PATH:$HOME/.local/bin"
+source $HOME/.cargo/env
