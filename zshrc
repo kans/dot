@@ -167,26 +167,12 @@ nvm use 16
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
-export HOMEBREW_GITHUB_API_TOKEN=17030a09dfc1ce7c40cdc5020362b234494dd5fa
 # strap:straprc:begin
 ### strap
 # [ -r "$HOME/.strap/etc/straprc" ] && . "$HOME/.strap/etc/straprc"
 # strap:straprc:end
 
-alias enter_sft_prod='eval $(gimme-aws-creds -p sft-prod)'
-alias enter_sft_trex='eval $(gimme-aws-creds -p sft-dev)'
-alias enter_sft_int='eval $(gimme-aws-creds -p sft-int)'
-alias enter_sft_sandbox='eval $(gimme-aws-creds -p sft-sandbox)'
-alias enter_sft_dev='eval $(gimme-aws-creds -p sft-dev)'
-
-function clear_aws() {
-  export AWS_ROLE_ARN=""
-  export AWS_ACCESS_KEY_ID=""
-  export AWS_SECRET_ACCESS_KEY=""
-  export AWS_SESSION_TOKEN=""
-  export AWS_SECURITY_TOKEN=""
-}
-
 
 export PATH="$PATH:$HOME/.local/bin"
 source $HOME/.cargo/env
+PATH="/Users/mattkaniaris/perl5/bin${PATH:+:${PATH}}"; export PATH;
